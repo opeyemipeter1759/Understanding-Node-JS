@@ -8,6 +8,7 @@
 
 // learning readline
 
+const { trace } = require('console');
 const readline = require ('readline');
 
 const rl = readline.createInterface({
@@ -18,7 +19,20 @@ const rl = readline.createInterface({
 let query = " what is your name?\n"
 
 rl.question(query, (answer)=>{
-    console.log(`hello ${answer}!`);
+    // console.log(`hello ${answer}!`);
 
     rl.close();
 })
+
+
+// console.trace 
+
+var smallFunct = function () {
+    console.trace("let us  look at trace");
+}
+
+var bigFunct = function () {
+    smallFunct();
+}
+
+bigFunct();
