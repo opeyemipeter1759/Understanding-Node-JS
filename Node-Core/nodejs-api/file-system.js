@@ -25,4 +25,16 @@ const readFile = async( path ) => {
     }
 }
 
-readFile("./test.txt");
+readFile( "./test.txt" )
+
+const writeFile = async ( path, nc ) =>
+{
+    try {
+        const newContent = await fs.writeFile( path, nc )
+        console.log(newContent);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+writeFile("./test.txt", "I am the new content")
