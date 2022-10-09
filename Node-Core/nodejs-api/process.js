@@ -20,4 +20,16 @@ console.log( myBio( "Opeyemi", "peter", "softwareEng", "Pastor" ) )
 const myName = ["Opeyemi", "Peter"]
 const aboutMe = ["Pastor", ...myName, "SE"]
 
-console.log(aboutMe);
+console.log( aboutMe )
+
+const person = { name: "Hou", title: "software engineer" };
+const personalInfo = { age: 32, location: "Brooklyn, NY" };
+
+const employee = {
+  id: 1,
+  department: "engineering",
+  ...person,
+  ...personalInfo,
+};
+
+console.log(employee);
