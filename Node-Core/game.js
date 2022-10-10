@@ -25,6 +25,7 @@ function game(tries, randomNumber, guess) {
     if (tries > 0) {
         if (guess === randomNumber) {
             console.log("WINNER");
+            process.exit()
         }
         else if (guess > randomNumber) {
             console.log("TOO HIGH");
