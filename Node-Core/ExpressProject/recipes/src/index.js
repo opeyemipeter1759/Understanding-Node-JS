@@ -1,5 +1,8 @@
 const express = require( "express" )
-const path = require('path')
+const path = require( 'path' )
+
+const recipesRouter = require( "./routers/recipes" )
+
 const app = express()
 
 
@@ -11,21 +14,8 @@ app.use( ( req, res, next ) =>
     next()
 })
 
-const publicDirectoryPath = path.join(__dirname, './public');
-app.use(express.static(publicDirectoryPath));
+app.use('/api/v1/recipies', recipesRouter)
 
-// route handler to send message to someone
-
-app.get( "/", ( req, res ) =>
-{
-    res.send( "Hello Express Student" )
-    // console.log(req);
-} )
-
-app.get( "/:name", ( req, res ) =>
-{
-    res.send( `welcome to Recipes, ${ req.params.name } !` )
-})
 
 const port = process.env.PORT || 5050
 
