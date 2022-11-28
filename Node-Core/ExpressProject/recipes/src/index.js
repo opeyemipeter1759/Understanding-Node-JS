@@ -2,6 +2,18 @@ const express = require( "express" )
 const path = require('path')
 const app = express()
 
+
+
+app.use( ( req, res, next ) =>
+{
+    const { method, path } = req
+    console.log( `new request to: ${ method } ${ path } at ${ new Date().toISOString() }` );
+    next()
+})
+
+const publicDirectoryPath = path.join(__dirname, './public');
+app.use(express.static(publicDirectoryPath));
+
 // route handler to send message to someone
 
 app.get( "/", ( req, res ) =>
@@ -12,8 +24,7 @@ app.get( "/", ( req, res ) =>
 
 app.get( "/:name", ( req, res ) =>
 {
-    res.send( `welcome to Recipes${ req.params.name }` )
-    console.log(req.params);
+    res.send( `welcome to Recipes, ${ req.params.name } !` )
 })
 
 const port = process.env.PORT || 5050
