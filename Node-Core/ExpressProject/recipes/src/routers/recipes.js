@@ -2,8 +2,9 @@ const {Router} = require( "express" )
 
 const router = Router()
 
-const { getAll } = require( "../controllers/recipes" )
+const { getAll, save} = require( "../controllers/recipes" )
 
-router.get("/", getAll)
+router.get( "/", getAll )
+router.post("/", save )
 
 module.exports = router

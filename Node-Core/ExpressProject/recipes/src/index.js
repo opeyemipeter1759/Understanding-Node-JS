@@ -12,9 +12,12 @@ app.use( ( req, res, next ) =>
     const { method, path } = req
     console.log( `new request to: ${ method } ${ path } at ${ new Date().toISOString() }` );
     next()
-})
+} )
 
-app.use('/api/v1/recipies', recipesRouter)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/v1/recipes', recipesRouter)
 
 
 const port = process.env.PORT || 5050
