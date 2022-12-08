@@ -4,6 +4,7 @@ const cors = require("cors");
 
 
 const recipesRouter = require( "./routers/recipes" )
+const {handleError} = require ("./utils/error")
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.get( "/", ( req, res ) =>
 
 app.use('/api/v1/recipes', recipesRouter)
 
+app.use(handleError)
 
 const port = process.env.PORT || 5050
 
