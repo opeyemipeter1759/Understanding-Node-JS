@@ -4,7 +4,11 @@ const cors = require("cors");
 
 
 const recipesRouter = require( "./routers/recipes" )
-const {handleError} = require ("./utils/error")
+const usersRouter = require('./routers/users');
+const { handleError } = require( "./utils/error" )
+const auth = require( './middleware/auth.js' );
+
+
 
 const app = express()
 
@@ -20,6 +24,8 @@ app.use( ( req, res, next ) =>
 
 app.use(express.json());
 app.use( express.urlencoded( { extended: true } ) );
+app.use(auth.initialize());
+
 
 app.get( "/", ( req, res ) =>
 {
