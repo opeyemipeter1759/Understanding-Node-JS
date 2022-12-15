@@ -49,5 +49,6 @@ const find = async ({ id, email }) => {
 module.exports = {
   authenticate,
   create,
-  find,
+    find,
+  test123
 };
