@@ -50,5 +50,4 @@ module.exports = {
   authenticate,
   create,
     find,
-  test123
 };
